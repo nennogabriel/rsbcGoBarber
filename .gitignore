@@ -1,7 +1,6 @@
-node_modules/
-tmp/
+node_modules
+tmp/uploads/*
 !tmp/uploads/.gitkeep
-
 
 # System Files
 .DS_Store
