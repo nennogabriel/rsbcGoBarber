@@ -1,10 +1,11 @@
 import 'dotenv/config';
 import express from 'express';
-import * as Sentry from '@sentry/node';
+import path from 'path';
+import cors from 'cors';
 import Youch from 'youch';
+import * as Sentry from '@sentry/node';
 import 'express-async-errors';
 
-import path from 'path';
 import routes from './routes';
 import sentryConfig from './config/sentry';
 
@@ -24,6 +25,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors());
     this.server.use(express.json());
     this.server.use(
       '/files',
@@ -47,4 +49,4 @@ class App {
   }
 }
 
-export default new App().disable('x-powered-by').server;
+export default new App().server;
