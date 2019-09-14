@@ -47,4 +47,4 @@ class App {
   }
 }
 
-export default new App().server;
+export default new App().disable('x-powered-by').server;
